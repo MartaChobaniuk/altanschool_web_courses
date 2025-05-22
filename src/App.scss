@@ -7,7 +7,12 @@
   height: 100vh;
   font-family: "Crimson Text", "Inter", serif;
   background-color: var.$main-bg;
-  overflow: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 
   @include mixin.flex(flex, center, center, column);
 
