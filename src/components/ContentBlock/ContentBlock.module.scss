@@ -1,0 +1,311 @@
+@use "../../utils/variables" as var;
+@use "../../utils/mixins" as mixin;
+
+.content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    width: 100%;
+    height: 50vh;
+    color: var.$text-color;
+
+    @include mixin.on-mobile {
+      @include mixin.flex(flex, center, center, row-reverse);
+
+      gap: 10px;
+    }
+
+    @include mixin.on-tablet {
+      @include mixin.flex(flex, center, center, row);
+
+      gap: 20px;
+    }
+
+    @include mixin.on-desktop {
+      @include mixin.flex(flex, center, center, row);
+
+      gap: 40px;
+    }
+
+    &--about {
+      width: 100%;
+      height: 100vh;
+      color: var.$text-color;
+      overflow: auto;
+    }
+  }
+
+  &__img-container {
+    @include mixin.on-mobile {
+      width: 50%;
+      height: 370px;
+      overflow: hidden;
+    }
+
+    @include mixin.on-tablet {
+      width: 50%;
+      height: 370px;
+      overflow: hidden;
+    }
+
+    @include mixin.on-desktop {
+      width: 50%;
+      height: 440px;
+      overflow: hidden;
+    }
+
+    @include mixin.on-design {
+      width: 50%;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    &--about {
+      @include mixin.on-mobile {
+        display: none;
+      }
+
+      @include mixin.on-tablet {
+        display: block;
+        width: 30%;
+        height: 510px;
+        overflow: hidden;
+      }
+
+      @include mixin.on-desktop {
+        display: block;
+        width: 30%;
+        height: 620px;
+      }
+
+      @include mixin.on-design {
+        display: block;
+        width: 30%;
+        height: 620px;
+      }
+    }
+  }
+
+  &__img-container-mobile {
+    display: none;
+
+    &--about {
+      @include mixin.on-mobile {
+        display: block;
+        width: 50%;
+        height: 250px;
+        overflow: hidden;
+      }
+
+      @include mixin.on-tablet {
+        display: none;
+      }
+
+      @include mixin.on-desktop {
+        display: none;
+      }
+
+      @include mixin.on-design {
+        display: none;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+  }
+
+  &__block {
+    width: 50%;
+
+    &--about {
+      @include mixin.on-mobile {
+        width: 100%;
+        height: max-content;
+        padding: 0 1rem 0 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @include mixin.on-tablet {
+        height: 510px;
+        width: 70%;
+        padding: 0;
+
+        @include mixin.flex(flex, false, start, column);
+      }
+
+      @include mixin.on-desktop {
+        height: 620px;
+        width: 70%;
+        padding: 0;
+
+        @include mixin.flex(flex, false, start, column);
+      }
+
+      @include mixin.on-design {
+        height: 620px;
+        width: 70%;
+
+        @include mixin.flex(flex, false, start, column);
+      }
+    }
+  }
+
+  &__title {
+    @include mixin.typ-tablet-h1;
+    margin-bottom: 20px;
+
+    @include mixin.on-mobile {
+      display: none;
+    }
+
+    @include mixin.on-tablet {
+      display: block;
+    }
+
+    @include mixin.on-desktop {
+      display: block;
+    }
+
+    @include mixin.on-design {
+      display: block;
+    }
+  }
+
+  &__title-mobile {
+    @include mixin.on-mobile {
+      display: block;
+      margin-bottom: 20px;
+
+      @include mixin.flex(flex, center, center, row);
+      @include mixin.typ-mobile-h1;
+    }
+
+    @include mixin.on-tablet {
+      display: none;
+    }
+
+    @include mixin.on-desktop {
+      display: none;
+    }
+
+    @include mixin.on-design {
+      display: none;
+    }
+  }
+
+  &__text {
+    text-align: justify;
+    margin-bottom: 20px;
+
+    @include mixin.on-mobile {
+      @include mixin.typ-mobile-text;
+    }
+
+    @include mixin.on-tablet {
+      @include mixin.typ-tablet-text;
+    }
+
+    @include mixin.on-desktop {
+      @include mixin.typ-tablet-text;
+    }
+
+    @include mixin.on-design {
+      @include mixin.typ-tablet-text;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    max-width: 227px;
+    background-color: var.$primary-button-color;
+    border-radius: 60px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    @include mixin.flex(flex, center, center, row);
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    @include mixin.on-mobile {
+      height: 32px;
+    }
+
+    @include mixin.on-tablet {
+      height: 43px;
+    }
+
+    @include mixin.on-desktop {
+      height: 43px;
+    }
+
+    @include mixin.on-design {
+      height: 43px;
+    }
+
+    &--about {
+      width: 100%;
+      max-width: 305px;
+      background-color: transparent;
+      border-radius: 10px;
+      border: 5px solid var.$primary-button-color;
+
+      @include mixin.flex(flex, center, center, row);
+
+      @include mixin.on-mobile {
+        height: 43px;
+      }
+
+      @include mixin.on-tablet {
+        height: 46px;
+      }
+
+      @include mixin.on-desktop {
+        height: 60px;
+      }
+
+      @include mixin.on-design {
+        height: 80px;
+      }
+    }
+  }
+
+  &__button-text {
+    @include mixin.typ-button-text;
+
+    color: var.$button-text-color;
+    text-transform: uppercase;
+
+    &--about {
+      color: var.$text-color;
+      text-transform: uppercase;
+
+      @include mixin.on-tablet {
+        @include mixin.typ-tablet-text;
+      }
+
+      @include mixin.on-desktop {
+        @include mixin.typ-sec-button-text;
+      }
+
+      @include mixin.on-design {
+        @include mixin.typ-sec-button-text;
+      }
+    }
+  }
+}

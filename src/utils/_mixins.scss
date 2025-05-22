@@ -1,0 +1,114 @@
+@mixin on-mobile {
+  @media (min-width: 375px) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1366px) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin flex($type: flex, $align: false, $justify: false, $direction: false) {
+  display: $type;
+
+  @if $align {
+    align-items: $align;
+  }
+
+  @if $justify {
+    justify-content: $justify;
+  }
+
+  @if $direction {
+    flex-direction: $direction;
+  }
+}
+
+@mixin sizes($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin hover-effect {
+  transform: scale(110%);
+}
+
+@mixin typ-header {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 0%;
+}
+
+@mixin typ-header-design {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 0%;
+}
+
+@mixin typ-menu {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+}
+
+@mixin typ-mobile-h1 {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 15%;
+}
+
+@mixin typ-tablet-h1 {
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 15%;
+}
+
+@mixin typ-tablet-text {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0%;
+}
+
+@mixin typ-mobile-text {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0%;
+}
+
+@mixin typ-button-text {
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 15%;
+}
+
+@mixin typ-sec-button-text {
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 15%;
+}
+
+@mixin typ-mobile-h2 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 15%;
+}
+
+@mixin typ-tablet-h2 {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 15%;
+}

@@ -1,0 +1,148 @@
+@use "../../utils/mixins" as mixin;
+@use "../../utils/variables" as var;
+
+.header {
+  @include mixin.flex(flex, center, space-between, row);
+
+  color: var.$text-color;
+
+  &__text {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var.$text-color;
+    transition: transform 0.3s linear;
+    cursor: pointer;
+
+    @include mixin.on-mobile {
+      @include mixin.typ-header;
+    }
+
+    @include mixin.on-tablet {
+      @include mixin.typ-header;
+    }
+
+    @include mixin.on-desktop {
+      @include mixin.typ-header;
+    }
+
+    @include mixin.on-design {
+      @include mixin.typ-header-design;
+    }
+
+    &:hover {
+      @include mixin.hover-effect;
+
+      transition: transform 0.3s linear;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var.$text-color;
+    margin-left: 50px;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var.$text-color;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__item--active {
+    &::after {
+      font-weight: 500;
+      color: var.$text-color;
+      width: 100%;
+    }
+  }
+
+  &__name {
+    transition: transform 0.3s linear;
+
+    &:hover {
+      @include mixin.hover-effect;
+
+      transition: transform 0.3s linear;
+    }
+  }
+
+  &__nav {
+    @include mixin.on-mobile {
+      display: none;
+    }
+
+    @include mixin.on-tablet {
+      display: block;
+
+      @include mixin.typ-header;
+    }
+
+    @include mixin.on-desktop {
+      display: block;
+    }
+
+    @include mixin.on-design {
+      display: block;
+
+      @include mixin.typ-header-design;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    @include mixin.on-mobile {
+      display: block;
+    }
+
+    @include mixin.on-tablet {
+      display: none;
+    }
+
+    @include mixin.on-desktop {
+      display: none;
+    }
+
+    @include mixin.on-design {
+      display: none;
+    }
+  }
+
+  &__img {
+    @include mixin.sizes(40px, 40px);
+
+    transition: transform 0.3s linear;
+
+    &:hover {
+      @include mixin.hover-effect;
+
+      transition: transform 0.3s linear;
+    }
+  }
+
+  &__img-cross {
+    @include mixin.sizes(30px, 30px);
+
+    transition: transform 0.3s linear;
+
+    &:hover {
+      @include mixin.hover-effect;
+
+      transition: transform 0.3s linear;
+    }
+  }
+}

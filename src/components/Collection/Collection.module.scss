@@ -1,0 +1,108 @@
+@use "../../utils/variables" as var;
+@use "../../utils/mixins" as mixin;
+
+.collection {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    color: var.$text-color;
+
+    @include mixin.on-mobile {
+      @include mixin.typ-tablet-text;
+
+      margin-bottom: 30px;
+    }
+
+    @include mixin.on-tablet {
+      @include mixin.typ-mobile-h1;
+
+      margin-bottom: 40px;
+    }
+
+    @include mixin.on-desktop {
+      @include mixin.typ-mobile-h1;
+
+      margin-bottom: 40px;
+    }
+
+    @include mixin.on-design {
+      @include mixin.typ-tablet-h1;
+
+      margin-bottom: 40px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+
+    @include mixin.on-mobile {
+      margin-bottom: 30px;
+    }
+
+    @include mixin.on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include mixin.on-desktop {
+      margin-bottom: 40px;
+    }
+
+    @include mixin.on-design {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__img-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s linear;
+
+    &:hover {
+      @include mixin.hover-effect;
+
+      transition: transform 0.3s linear;
+    }
+  }
+
+  &__text {
+    text-align: center;
+
+    @include mixin.on-mobile {
+      @include mixin.typ-tablet-text;
+
+      margin-bottom: 20px;
+    }
+
+    @include mixin.on-tablet {
+      @include mixin.typ-mobile-h1;
+    }
+
+    @include mixin.on-desktop {
+      @include mixin.typ-mobile-h1;
+
+      margin-bottom: 20px;
+    }
+
+    @include mixin.on-design {
+      @include mixin.typ-tablet-h1;
+    }
+  }
+}

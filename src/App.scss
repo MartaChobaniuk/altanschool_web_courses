@@ -1,0 +1,149 @@
+@use "./utils/mixins" as mixin;
+@use "./utils/variables" as var;
+@use "./utils/normalize.scss";
+
+.app {
+  width: 100%;
+  height: 100vh;
+  font-family: "Crimson Text", "Inter", serif;
+  background-color: var.$main-bg;
+  overflow: hidden;
+
+  @include mixin.flex(flex, center, center, column);
+
+  &--about,
+  &--shop,
+  &--menu {
+    background-color: #fff;
+  }
+
+  &--contact {
+    @include mixin.on-mobile {
+      background: linear-gradient(to bottom, #f1f1f1 70%, #dbdbdb 30%);
+    }
+
+    @include mixin.on-tablet {
+      background: linear-gradient(to right, #f1f1f1 70%, #dbdbdb 30%);
+    }
+
+    @include mixin.on-desktop {
+      background: linear-gradient(to right, #f1f1f1 70%, #dbdbdb 30%);
+    }
+
+    @include mixin.on-design {
+      background: linear-gradient(to right, #f1f1f1 70%, #dbdbdb 30%);
+    }
+  }
+
+  &__container {
+    position: relative;
+    margin: 0 auto;
+
+    @include mixin.on-mobile {
+      width: 100%;
+      padding: 0 0 0 1rem;
+
+      &--shop {
+        padding: 0;
+      }
+    }
+
+    @include mixin.on-tablet {
+      max-width: 900px;
+      padding: 0;
+    }
+
+    @include mixin.on-desktop {
+      max-width: 1140px;
+    }
+
+    @include mixin.on-design {
+      max-width: 1140px;
+    }
+  }
+
+  &__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    margin: 0 auto;
+
+    background-color: var.$main-bg;
+
+    &--about,
+    &--menu {
+      background-color: #fff;
+    }
+
+    &--shop {
+      background-color: transparent;
+    }
+
+    &--contact {
+      @include mixin.on-mobile {
+        background-color: #f1f1f1;
+      }
+
+      @include mixin.on-tablet {
+        background-color: transparent;
+      }
+
+      @include mixin.on-desktop {
+        background-color: transparent;
+      }
+
+      @include mixin.on-design {
+        background-color: transparent;
+      }
+    }
+
+    @include mixin.on-mobile {
+      padding: 16px 16px 0 16px;
+      max-width: 992px;
+    }
+
+    @include mixin.on-tablet {
+      padding: 24px 0;
+      max-width: 900px;
+    }
+
+    @include mixin.on-desktop {
+      padding: 32px 0;
+      max-width: 1150px;
+    }
+  }
+
+  &__line {
+    display: block;
+    height: 130px;
+    background-color: #fff;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+    left: 0;
+    right: 0;
+    z-index: 20;
+
+    &--menu {
+      display: none;
+    }
+
+    &--about,
+    &--home,
+    &--blog,
+    &--contact {
+      background-color: transparent;
+    }
+
+    &--shop {
+      background-color: #fff;
+    }
+  }
+
+  &__main {
+    flex: 1;
+  }
+}

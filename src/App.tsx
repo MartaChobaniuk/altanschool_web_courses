@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Outlet, useLocation } from 'react-router-dom'
+import './App.scss'
+import { Header } from './components/Header'
+import cn from 'classnames';
+import { Path } from './types/Path';
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+  const { pathname } = useLocation();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div
+      className={cn('app', {
+        'app--about': pathname === Path.About,
+        'app--shop': pathname === Path.Shop,
+        'app--contact': pathname === Path.Contact,
+        'app--menu': pathname === Path.Menu,
+      })}
+    >
+      <header
+        className={cn('app__header', {
+          'app__header--about': pathname === Path.About,
+          'app__header--shop': pathname === Path.Shop,
+          'app__header--contact': pathname === Path.Contact,
+          'app__header--menu': pathname === Path.Menu,
+
+        })}
+      >
+        <Header />
+      </header>
+      <div
+        className={cn('app__container', {
+          ['app__container--shop']: pathname === Path.Shop,
+        })}
+      >
+        <div className={cn('app__line', {
+          ['app__line--home']: pathname === Path.Home,
+          ['app__line--about']: pathname === Path.About,
+          ['app__line--shop']: pathname === Path.Shop,
+          ['app__line--blog']: pathname === Path.Blog,
+          ['app__line--contact']: pathname === Path.Contact,
+          ['app__line--menu']: pathname === Path.Menu,
+        })}></div>
+        <main className='app__main'>
+          <Outlet />
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
-
-export default App
