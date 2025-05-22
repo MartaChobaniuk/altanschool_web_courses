@@ -36,7 +36,7 @@
     @include mixin.on-mobile {
       @include mixin.typ-tablet-text;
 
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     @include mixin.on-tablet {
